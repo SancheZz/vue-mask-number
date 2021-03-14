@@ -1,4 +1,4 @@
-# @yasanchezz/vue-mask
+# @yasanchezz/vue-mask-number
 
 > This is a input mask which is based on VueJs 2.6+ and requires modern browsers.
 > [Live Demo](http://sanchezz.me/vuemasknumber/).
@@ -24,13 +24,13 @@ Vue.use(VueMask);
     :value.sync="value"
     mask="+47 ### ## ###"
     mask-character="0"
-    class="vue-mask"
+    class="mask-number"
     always-visible-mask
   ></vue-mask>
 </template>
 
 <style lang="scss" scoped>
-.vue-mask {
+.mask-number {
   /* padding for input and mask */
   --mask-padding: 5px 10px;
 

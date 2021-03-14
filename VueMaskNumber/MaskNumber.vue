@@ -1,7 +1,7 @@
 <template>
   <span
     :style="style"
-    class="vue-mask"
+    class="vue-mask-number"
   >
     <!-- control -->
     <input
@@ -11,7 +11,7 @@
       :maxlength="maxlength"
       type="text"
       inputmode="numeric"
-      class="vue-mask__control"
+      class="vue-mask-number__control"
       @focus="isFocusing = true"
       @blur="isFocusing = false"
     >
@@ -174,7 +174,7 @@ export default Vue.extend<Data, Methods, Computed, Props>({
 </script>
 
 <style lang="scss" scoped>
-.vue-mask {
+.vue-mask-number {
   position: relative;
   display: inline-block;
   padding: 0 !important;
