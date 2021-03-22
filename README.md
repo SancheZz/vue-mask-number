@@ -6,7 +6,7 @@
 ## Installation
 
 Install npm package
-`npm install @yasanchezz/vue-mask-number --save`
+`npm install @yasanchezz/vue-mask-number --save-dev`
 
 Declare dependency in main.js
 
