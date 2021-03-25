@@ -1,0 +1,54 @@
+name: build and publish
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'VueMaskNumber/**/*.{ts,scss,vue}'
+      - 'tests/**/*.ts'
+
+jobs:
+  tests:
+    name: run tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 15
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run test:e2e
+
+  publish:
+    name: build and publish package
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          registry-url: https://registry.npmjs.org/
+          node-version: 15
+
+      - run: npm ci
+      - run: npm run build
+
+      - run: |
+          git config user.name github-actions
+          git config user.email sosed87@gmail.com
+
+      - run: npm version patch
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.npm }}
+
+      - run: git push origin HEAD
+        env:
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.npm }}
