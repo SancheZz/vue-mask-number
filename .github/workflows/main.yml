@@ -23,6 +23,7 @@ jobs:
       - run: npm run test:e2e
 
   publish:
+    needs: tests
     name: build and publish package
     runs-on: ubuntu-latest
 
