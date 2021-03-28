@@ -20,13 +20,13 @@ Vue.use(VueMask);
 
 ``` vue
 <template>
-  <vue-mask
+  <vue-mask-number
     :value.sync="value"
     mask="+47 ### ## ###"
     mask-character="0"
     class="mask-number"
     always-visible-mask
-  ></vue-mask>
+  ></vue-mask-number>
 </template>
 
 <style lang="scss" scoped>
