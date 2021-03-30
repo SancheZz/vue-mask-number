@@ -1,11 +1,11 @@
-import MaskNumber from './MaskNumber.vue';
+import VueMaskNumber from './MaskNumber.vue';
 
 export {
-  MaskNumber,
+  VueMaskNumber,
 };
 
-export default Object.assign(MaskNumber, {
+export default Object.assign(VueMaskNumber, {
   install (Vue) {
-    Vue.component('vue-mask-number', MaskNumber);
+    Vue.component('vue-mask-number', VueMaskNumber);
   },
 });

@@ -13,7 +13,7 @@ Declare dependency in main.js
 ``` js
 import VueMaskNumber from '@yasanchezz/vue-mask-number';
 import '@yasanchezz/vue-mask-number/dist/vue-mask-number.css';
-Vue.use(VueMask);
+Vue.use(VueMaskNumber);
 ```
 
 ## Usage
