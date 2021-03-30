@@ -264,6 +264,8 @@ export default VueComponent.extend<Data, Methods, Computed, Props>({
 }
 
 .mask-character {
+  font-kerning: none;
+
   &--controlled {
     color: $maskControlledColor;
     color: var(--mask-controlled-color, $maskControlledColor);
