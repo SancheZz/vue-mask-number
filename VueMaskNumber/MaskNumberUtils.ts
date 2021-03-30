@@ -44,7 +44,7 @@ export function validateValue (value = '', mask = ''): string {
 }
 
 /**
- * map numbers sequence on mask
+ * map numbers sequence on the mask
  * @param  {String} value
  * @param  {String} mask
  * @return {String}
