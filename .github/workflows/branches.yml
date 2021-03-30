@@ -1,4 +1,4 @@
-name: build and publish
+name: check pull request
 
 on:
   pull_request:

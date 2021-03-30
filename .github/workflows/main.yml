@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - 'VueMaskNumber/**/*.{ts,scss,vue}'
-      - 'tests/**/*.ts'
 
 jobs:
   tests:
