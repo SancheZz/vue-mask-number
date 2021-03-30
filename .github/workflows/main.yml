@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'VueMaskNumber/*.{js,ts,scss,vue}'
+      - 'VueMaskNumber/**'
       - 'tests/**/*.ts'
 
 jobs:
