@@ -1,7 +1,6 @@
 # @yasanchezz/vue-mask-number
 
-> This is a input mask which is based on VueJs 2.6+ and requires modern browsers.
-> [Live Demo](http://sanchezz.me/vuemasknumber/).
+> This is an input mask which is based on VueJs 2.6+ and requires modern browsers.
 
 ## Installation
 
