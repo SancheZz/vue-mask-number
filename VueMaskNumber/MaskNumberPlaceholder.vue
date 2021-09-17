@@ -174,7 +174,7 @@ export default VueComponent.extend<Data, Methods, Computed, Props>({
     if (this.resizeObserver) {
       this.resizeObserver.disconnect();
     } else {
-      window.removeEventListener('reisze', this.handleWindowResize);
+      window.removeEventListener('resize', this.handleWindowResize);
     }
   },
 
