@@ -7,16 +7,19 @@ import type { Plugin } from 'vue';
 declare module 'vue' {
   export interface GlobalComponents {
     MaskNumber: DefineComponent<{
-      placeholder: string;
+      disabled?: boolean;
       mask: string;
+      placeholder: string;
+      readonly?: boolean;
+      required?: boolean;
       value: string;
     }, {}, any>;
   }
 }
 
 export type MaskNumberRef = {
-  element: HTMLDivElement | null;
   control: HTMLInputElement | null;
+  element: HTMLDivElement | null;
 }
 
 declare const plugin: Plugin;

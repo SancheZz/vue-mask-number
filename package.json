@@ -12,8 +12,9 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "prepare": "pnpm exec husky install",
+    "lint:eslint": "pnpm exec eslint MaskNumber/**/*.{ts,vue}",
     "lint:vue": "vue-tsc --noEmit",
-    "lint": "pnpm lint:vue",
+    "lint": "pnpm lint:eslint && pnpm lint:vue",
     "dev": "vite build -w",
     "build": "pnpm lint && vite build",
     "preview": "vite preview"
@@ -30,6 +31,7 @@
     "eslint-config-xo": "^0.42.0",
     "eslint-config-xo-space": "^0.33.0",
     "eslint-config-xo-typescript": "^0.53.0",
+    "eslint-plugin-typescript-sort-keys": "^2.1.0",
     "eslint-plugin-vue": "^9.6.0",
     "husky": "^8.0.1",
     "sass": "^1.55.0",

@@ -2,8 +2,8 @@
 import { computed } from 'vue';
 
 const props = defineProps<{
-  symbol: string;
   hidden: boolean;
+  symbol: string;
 }>();
 
 const classes = computed(() => {

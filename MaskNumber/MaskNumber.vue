@@ -1,14 +1,30 @@
 <script setup lang="ts">
-import { computed, ref, nextTick } from 'vue';
+import { computed, ref, nextTick, toRefs } from 'vue';
 import MaskNumberPlaceholder from './MaskNumberPlaceholder.vue';
 import { getMaskedValue } from './utils';
 import { controlMaskSymbol } from './values';
 
-const props = defineProps<{
-  placeholder: string;
-  mask: string;
-  value: string;
-}>();
+const props = withDefaults(
+  defineProps<{
+    disabled?: boolean;
+    mask: string;
+    placeholder: string;
+    readonly?: boolean;
+    required?: boolean;
+    value: string;
+  }>(),
+  {
+    required: false,
+    readonly: false,
+    disabled: false,
+  },
+);
+
+const {
+  disabled: isDisabled,
+  readonly: isReadOnly,
+  required: isRequired,
+} = toRefs(props);
 
 const emit = defineEmits<{
   (event: 'update:value', value: string): void;
@@ -94,6 +110,9 @@ defineExpose({
       ref="inputControl"
       v-model="value"
       class="mask-number__control"
+      :disabled="isDisabled"
+      :readonly="isReadOnly"
+      :required="isRequired"
       type="text"
       @input="handleInput"
       @keydown="handleKeyDown"
@@ -111,6 +130,7 @@ defineExpose({
 
   &__control {
     display: block;
+    box-sizing: border-box;
     width: 100%;
     padding: var(--mask-padding, 0);
     font: inherit;

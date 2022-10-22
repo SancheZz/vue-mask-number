@@ -47,9 +47,12 @@ createApp(App)
 ```
 
 ### props
-* __mask__ *String* - mask with `#` character, for example, +47 ### ## ###
-* __placeholder__ *String* - placeholder string, which is showing
-* __value__ *String* - passed value
+* __mask__ *String* - mask with `#` character, for example, +47 ### ## ###;
+* __placeholder__ *String* - placeholder string, which is showing;
+* __value__ *String* - passed value;
+* __required__: *Boolean?* - native attribute;
+* __readonly__: *Boolean?* - native attribute;
+* __disabled__: *Boolean?* - native attribute;
 
 ### Usage as Ref
 You can use inner elements:
