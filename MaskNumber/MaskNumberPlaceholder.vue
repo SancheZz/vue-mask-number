@@ -1,17 +1,23 @@
 <script setup lang="ts">
+import { computed } from 'vue';
 import MaskNumberPlaceholderSymbol from './MaskNumberPlaceholderSymbol.vue';
 
-defineProps<{
+const props = defineProps<{
   mask: string;
   placeholder: string;
   value: string;
 }>();
+
+const valuedMask = computed(
+  () => props.value
+  + props.placeholder.slice(props.value.length),
+);
 </script>
 
 <template>
   <div class="number-placeholder">
     <MaskNumberPlaceholderSymbol
-      v-for="(symbol, index) in placeholder"
+      v-for="(symbol, index) in valuedMask"
       :key="index"
       :hidden="Boolean(value[index])"
       :symbol="symbol"
