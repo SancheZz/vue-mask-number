@@ -8,6 +8,7 @@ on:
       - 'MaskNumber/**'
       - .github/**
       - 'package.json'
+      - 'pnpm-lock.yaml'
 
 jobs:
   publish:
