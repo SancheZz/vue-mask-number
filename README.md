@@ -47,7 +47,6 @@ createApp(App)
 ```
 
 ### props
-* __autocomplete__ *off? | on?* - hint for form autofill feature;
 * __autofocus__ *Boolean?* - indicates that a input should have focus when the page loads;
 * __enterkeyhint__ *String?* - specified which action label to present for the enter key on virtual keyboards;
 * __placeholder__ *String* - placeholder string, which is showing;

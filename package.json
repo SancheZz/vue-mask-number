@@ -23,10 +23,10 @@
     "vue": "^3.2.41"
   },
   "devDependencies": {
-    "@types/node": "^18.11.4",
-    "@typescript-eslint/eslint-plugin": "^5.40.1",
-    "@typescript-eslint/parser": "^5.40.1",
-    "@vitejs/plugin-vue": "^3.1.2",
+    "@types/node": "^18.11.7",
+    "@typescript-eslint/eslint-plugin": "^5.41.0",
+    "@typescript-eslint/parser": "^5.41.0",
+    "@vitejs/plugin-vue": "^3.2.0",
     "eslint": "^8.26.0",
     "eslint-config-xo": "^0.42.0",
     "eslint-config-xo-space": "^0.33.0",
@@ -36,7 +36,7 @@
     "husky": "^8.0.1",
     "sass": "^1.55.0",
     "typescript": "^4.8.4",
-    "vite": "^3.1.8",
+    "vite": "^3.2.1",
     "vite-plugin-eslint": "^1.8.1",
     "vite-plugin-static-copy": "^0.9.0",
     "vue-eslint-parser": "^9.1.0",

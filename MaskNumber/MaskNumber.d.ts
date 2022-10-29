@@ -7,7 +7,6 @@ import type { Plugin } from 'vue';
 declare module 'vue' {
   export interface GlobalComponents {
     MaskNumber: DefineComponent<{
-      autocomplete?: 'off' | 'on';
       autofocus?: boolean;
       disabled?: boolean;
       enterkeyhint?: 'enter'| 'done'| 'go'| 'next'| 'previous'| 'search'| 'send' | null;

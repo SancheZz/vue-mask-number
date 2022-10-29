@@ -6,7 +6,6 @@ import { controlMaskSymbol } from './values';
 
 const props = withDefaults(
   defineProps<{
-    autocomplete?: 'off' | 'on';
     autofocus?: boolean;
     disabled?: boolean;
     enterkeyhint?: 'enter'| 'done'| 'go'| 'next'| 'previous'| 'search'| 'send' | null;
@@ -17,7 +16,6 @@ const props = withDefaults(
     value: string;
   }>(),
   {
-    autocomplete: 'off',
     autofocus: false,
     enterkeyhint: null,
     required: false,
@@ -27,7 +25,6 @@ const props = withDefaults(
 );
 
 const {
-  autocomplete,
   autofocus,
   disabled: isDisabled,
   readonly: isReadOnly,
@@ -117,7 +114,7 @@ defineExpose({
     <input
       ref="inputControl"
       v-model="value"
-      :autocomplete="autocomplete"
+      autocomplete="off"
       :autofocus="autofocus"
       class="mask-number__control"
       :disabled="isDisabled"
