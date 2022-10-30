@@ -47,7 +47,6 @@ createApp(App)
 ```
 
 ### props
-* __autofocus__ *Boolean?* - indicates that a input should have focus when the page loads;
 * __enterkeyhint__ *String?* - specified which action label to present for the enter key on virtual keyboards;
 * __placeholder__ *String* - placeholder string, which is showing;
 * __disabled__: *Boolean?* - native attribute;
@@ -60,7 +59,7 @@ createApp(App)
 You can use inner elements:
 
 * __element__ *HTMLDivElement* - component container
-* __control__ *HTMLInputElement* - controls itself. You can use a control to handle events, e.g. invalid.
+* __control__ *HTMLInputElement* - control itself. You can use a control to handle events, e.g. invalid.
 
 ``` js
 import { ref, watch } from 'vue'
@@ -70,12 +69,9 @@ const mask = ref<MaskNumberRef | null> = ref(null);
 
 watch(
   () => mask.value?.control,
-  control => {
-    if (control) {
-      control.addEventListener('invalid', event => {
-        // handle invalid event
-      })
-    }
+  (newContor, oldControl) => {
+    newContor?.addEventListener('invalid', handleInvalid)
+    oldControl?.removeEventListener('invalid', handleInvalid)
   }
 )
 ```
