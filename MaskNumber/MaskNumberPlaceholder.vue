@@ -36,5 +36,6 @@ const valuedMask = computed(
   pointer-events: none;
   color: var(--mask-placeholder-color, inherit);
   padding: var(--mask-padding, 0);
+  font-variant-numeric: tabular-nums;
 }
 </style>
