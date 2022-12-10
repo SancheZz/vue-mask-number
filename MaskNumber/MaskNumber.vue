@@ -8,7 +8,7 @@ const props = withDefaults(
   defineProps<{
     autofocus?: boolean;
     disabled?: boolean;
-    enterkeyhint?: 'enter'| 'done'| 'go'| 'next'| 'previous'| 'search'| 'send' | null;
+    enterkeyhint?: 'enter'| 'done'| 'go'| 'next'| 'previous'| 'search'| 'send' | null | undefined;
     mask: string;
     placeholder: string;
     readonly?: boolean;
