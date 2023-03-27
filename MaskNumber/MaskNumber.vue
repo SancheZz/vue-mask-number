@@ -120,6 +120,7 @@ defineExpose({
       :disabled="isDisabled"
       :enterkeyhint="enterkeyhint"
       inputmode="numeric"
+      :maxlength="mask.length"
       :readonly="isReadOnly"
       :required="isRequired"
       spellcheck="false"
