@@ -46,8 +46,7 @@ function handleKeyDown(event: KeyboardEvent) {
   if (target instanceof HTMLInputElement && event.key === 'Backspace') {
     event.preventDefault();
     const { mask } = props;
-    const { selectionStart, selectionEnd } = target;
-    const inputValue = target.value.slice(0, mask.length);
+    const { selectionStart, selectionEnd, value: inputValue } = target;
 
     if (
       selectionStart !== selectionEnd
