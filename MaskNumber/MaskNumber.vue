@@ -8,7 +8,7 @@ const props = withDefaults(
   defineProps<{
     autofocus?: boolean;
     disabled?: boolean;
-    enterkeyhint?: 'enter'| 'done'| 'go'| 'next'| 'previous'| 'search'| 'send' | null | undefined;
+    enterkeyhint?: 'enter'| 'done' | 'go' | 'next' | 'previous' | 'search' | 'send' | null | undefined;
     mask: string;
     placeholder: string;
     readonly?: boolean;
@@ -46,7 +46,8 @@ function handleKeyDown(event: KeyboardEvent) {
   if (target instanceof HTMLInputElement && event.key === 'Backspace') {
     event.preventDefault();
     const { mask } = props;
-    const { selectionStart, selectionEnd, value: inputValue } = target;
+    const { selectionStart, selectionEnd } = target;
+    const inputValue = target.value.slice(0, mask.length);
 
     if (
       selectionStart !== selectionEnd
