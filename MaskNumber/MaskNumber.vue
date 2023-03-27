@@ -8,7 +8,7 @@ const props = withDefaults(
   defineProps<{
     autofocus?: boolean;
     disabled?: boolean;
-    enterkeyhint?: 'enter'| 'done' | 'go' | 'next' | 'previous' | 'search' | 'send' | null | undefined;
+    enterkeyhint?: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send' | null | undefined;
     mask: string;
     placeholder: string;
     readonly?: boolean;
@@ -103,7 +103,7 @@ defineExpose({
 <template>
   <div
     ref="containerElement"
-    class="mask-number"
+    :class="$style.maskNumber"
   >
     <MaskNumberPlaceholder
       :mask="mask"
@@ -116,7 +116,7 @@ defineExpose({
       v-model="value"
       autocomplete="off"
       :autofocus="autofocus"
-      class="mask-number__control"
+      :class="$style.maskNumberControl"
       :disabled="isDisabled"
       :enterkeyhint="enterkeyhint"
       inputmode="numeric"
@@ -130,23 +130,23 @@ defineExpose({
   </div>
 </template>
 
-<style scoped lang="scss">
-.mask-number {
+<style module lang="scss">
+.maskNumber {
   display: inline-block;
   position: relative;
   overflow: clip;
   text-align: left;
   padding: 0 !important;
+}
 
-  &__control {
-    display: block;
-    box-sizing: border-box;
-    width: 100%;
-    padding: var(--mask-padding, 0);
-    font: inherit;
-    border: none;
-    background: none;
-    outline: none;
-  }
+.maskNumberControl {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  padding: var(--mask-padding, 0);
+  font: inherit;
+  border: none;
+  background: none;
+  outline: none;
 }
 </style>
