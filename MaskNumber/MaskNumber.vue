@@ -31,6 +31,7 @@ const {
   disabled: isDisabled,
   readonly: isReadOnly,
   required: isRequired,
+  name: inputName,
 } = toRefs(props);
 
 const emit = defineEmits<{
@@ -123,6 +124,7 @@ defineExpose({
       :enterkeyhint="enterkeyhint"
       inputmode="numeric"
       :maxlength="mask.length"
+      :name="inputName"
       :readonly="isReadOnly"
       :required="isRequired"
       spellcheck="false"
