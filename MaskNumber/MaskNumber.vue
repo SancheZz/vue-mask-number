@@ -10,12 +10,14 @@ const props = withDefaults(
     disabled?: boolean;
     enterkeyhint?: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send' | null | undefined;
     mask: string;
+    name?: string;
     placeholder: string;
     readonly?: boolean;
     required?: boolean;
     value: string;
   }>(),
   {
+    name: '',
     autofocus: false,
     enterkeyhint: null,
     required: false,
