@@ -103,7 +103,7 @@ defineExpose({
 <template>
   <div
     ref="containerElement"
-    :class="$style.maskNumber"
+    class="mask-number"
   >
     <MaskNumberPlaceholder
       :mask="mask"
@@ -116,7 +116,7 @@ defineExpose({
       v-model="value"
       autocomplete="off"
       :autofocus="autofocus"
-      :class="$style.maskNumberControl"
+      class="mask-number__control"
       :disabled="isDisabled"
       :enterkeyhint="enterkeyhint"
       inputmode="numeric"
@@ -131,23 +131,23 @@ defineExpose({
   </div>
 </template>
 
-<style module lang="scss">
-.maskNumber {
+<style scoped lang="scss">
+.mask-number {
   display: inline-block;
   position: relative;
   overflow: clip;
   text-align: left;
   padding: 0 !important;
-}
 
-.maskNumberControl {
-  display: block;
-  box-sizing: border-box;
-  width: 100%;
-  padding: var(--mask-padding, 0);
-  font: inherit;
-  border: none;
-  background: none;
-  outline: none;
+  &__control {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    padding: var(--mask-padding, 0);
+    font: inherit;
+    border: none;
+    background: none;
+    outline: none;
+  }
 }
 </style>
