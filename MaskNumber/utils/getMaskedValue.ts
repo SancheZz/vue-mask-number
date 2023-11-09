@@ -1,65 +1,36 @@
 import { controlMaskSymbol } from '../values';
 
-const digitValuePattern = /\d/;
-const nonDigitValuePattern = /\D/g;
-const nonDigitMaskPattern = /[^\d#]/;
-
-function sanitizeValue(value: string, mask: string) {
-  let result = '';
-
-  for (let i = 0; i < value.length; i += 1) {
-    const valueSymbol = value[i];
-    const maskSymbol = mask[i];
-
-    if (
-      maskSymbol === controlMaskSymbol
-      && valueSymbol
-      && digitValuePattern.test(valueSymbol)
-    ) {
-      result += valueSymbol;
-    }
-  }
-
-  return result;
-}
+const nonDigitMaskPattern = /[\D#]/g;
 
 export default function getMaskedValue(value: string, mask: string) {
-  nonDigitValuePattern.lastIndex = 0;
-
-  const sanitizedValue = sanitizeValue(value, mask)
-    .replace(nonDigitValuePattern, '');
-
-  const valueIterator = sanitizedValue[Symbol.iterator]();
+  nonDigitMaskPattern.lastIndex = 0;
+  const valueIterator = value.replace(nonDigitMaskPattern, '')[Symbol.iterator]();
+  const maskIterator = mask[Symbol.iterator]();
+  let valueYieldValue = valueIterator.next();
   let result = '';
 
-  for (let i = 0; i < mask.length; i += 1) {
-    const sourceValueSymbol = value[i];
-    const maskSymbol = mask[i];
-    const isSourceValueSymbolString = typeof sourceValueSymbol === 'string';
-    const isMaskSymbolString = typeof maskSymbol === 'string';
-    const isMaskSymbolNotDigit = isMaskSymbolString && nonDigitMaskPattern.test(maskSymbol);
+  for (const maskYieldedValue of maskIterator) {
+    if (valueYieldValue.done) {
+      break;
+    }
 
-    const isSourceValueNotDefined = isMaskSymbolString
-      && sourceValueSymbol !== maskSymbol
-      && maskSymbol !== controlMaskSymbol;
-
-    const isMaskSymbolSame = isSourceValueSymbolString
-      && isMaskSymbolString
-      && maskSymbol === sourceValueSymbol
-      && sourceValueSymbol !== controlMaskSymbol;
-
-    if (isMaskSymbolNotDigit || isSourceValueNotDefined || isMaskSymbolSame) {
-      result += maskSymbol;
+    if (!valueYieldValue.done && valueYieldValue.value === maskYieldedValue) {
+      result += maskYieldedValue;
+      valueYieldValue = valueIterator.next();
       continue;
     }
 
-    const { done, value: valueSymbol } = valueIterator.next();
-    if (maskSymbol === controlMaskSymbol && !done && valueSymbol) {
-      result += valueSymbol;
+    if (maskYieldedValue !== controlMaskSymbol) {
+      result += maskYieldedValue;
       continue;
     }
 
-    break;
+    result += valueYieldValue.value;
+    valueYieldValue = valueIterator.next();
+  }
+
+  for (const character of valueIterator) {
+    result += character;
   }
 
   return result;

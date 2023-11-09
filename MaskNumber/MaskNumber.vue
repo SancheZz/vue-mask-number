@@ -152,6 +152,7 @@ defineExpose({
     border: none;
     background: none;
     outline: none;
+    font-variant-numeric: tabular-nums;
   }
 }
 </style>

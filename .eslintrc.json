@@ -38,6 +38,7 @@
         "prefer": "type-imports"
       }
     ],
+    "no-labels": "off",
     "no-unused-vars": "off",
     "object-curly-spacing": "off",
     "func-call-spacing": "off",
